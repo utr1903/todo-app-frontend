@@ -1,0 +1,31 @@
+<div class="header-container">
+    <h1>User Settings</h1>
+</div>
+
+<div class="username-container">
+    <p>
+        Username
+        <br>
+        <input type="text" [(ngModel)]="userName">
+    </p>
+</div>
+
+<div class="password-container">
+    <p>
+        New Password
+        <br>
+        <input type="password" [(ngModel)]="password">
+    </p>
+</div>
+
+<div class="password-container">
+    <p>
+        New Password Again
+        <br>
+        <input type="password" [(ngModel)]="passwordNew">
+    </p>
+</div>
+
+<button (click)="saveChanges()" type="button" mdbBtn color="primary" mdbWavesEffect>Save Changes</button>
+&nbsp;&nbsp;
+<button (click)="cancel()" type="button" mdbBtn color="primary" mdbWavesEffect>Cancel</button>

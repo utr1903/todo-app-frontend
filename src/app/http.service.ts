@@ -7,14 +7,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class HttpService {
 
-  headers = new HttpHeaders()
-    .set("Access-Control-Allow-Origin", "*");
-
   constructor(private http: HttpClient) { }
-
-  getBeer() {
-    return this.http.get('https://api.openbrewerydb.org/breweries');
-  }
 
   get(url: string) {
     const headerDict = {

@@ -12,6 +12,10 @@ export class ListComponent implements OnInit {
   constructor(private _http: HttpService) { }
 
   ngOnInit() {
+    this.getTodoLists();
+  }
+
+  getTodoLists() {
     this._http.get('http://localhost:8080/lists/GetLists').subscribe(
       data => {
         this.lists = data;
