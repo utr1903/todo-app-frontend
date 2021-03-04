@@ -25,7 +25,6 @@ export class HttpService {
     const requestOptions = {                                                                                                                                                                                 
       headers: new HttpHeaders(headerDict), 
     };
-    console.log(requestOptions);
 
     // return this.http.get(url);
     return this.http.get(url, requestOptions);

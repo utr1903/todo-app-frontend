@@ -1,9 +1,9 @@
-<h1>Breweries</h1>
+<h1>Todo Lists</h1>
 
-<ul *ngIf="brews">
-    <li *ngFor="let brew of brews">
-        <p class="name">{{ brew.name }}</p>
-        <p class="country">{{ brew.country }}</p>
-        <a href="{{ brew.website_url }}" class="site">site</a>
+<ul *ngIf="lists">
+    <li *ngFor="let list of lists">
+        <p class="UserId">{{ list.userId }}</p>
+        <p class="Name">{{ list.name }}</p>
+        <!-- <a href="{{ brew.website_url }}" class="site">site</a> -->
     </li>
 </ul>
