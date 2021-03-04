@@ -6,6 +6,23 @@ span {
     user-select: none;
 }
 
+.header-container {
+    // padding: 2em;
+    border: none;
+    margin-top: 2em;
+    margin-bottom: none;
+    text-align: center;
+}
+
+.info-container {
+    padding: 0em;
+    border: none;
+    margin-left: 15em;
+    margin-right: 15em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
 .play-container {
     padding: 3em;
     border: 1px solid lightgray;

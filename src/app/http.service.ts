@@ -11,4 +11,12 @@ export class HttpService {
   getBeer() {
     return this.http.get('https://api.openbrewerydb.org/breweries');
   }
+
+  get(url: string) {
+    return this.http.get(url);
+  }
+
+  post(url: string, body: any) {
+    return this.http.post(url, body);
+  }
 }
