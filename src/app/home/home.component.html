@@ -4,12 +4,35 @@
 
 <div class="info-container">
     <p>
-        This app serves just for newbies - like myself - to learn a bit about Angular. It obviously does not offer
-        best UI experience but hopefully will give you a bit of an introduction.
+        This app serves for newbies, like myself, to learn a bit about Angular. It obviously does not offer
+        the best UI experience but hopefully will give you a bit of an introduction. Please enjoy :)
     </p>
+</div>
+
+<br>
+
+<h2>Login</h2>
+
+<div class="username-container">
     <p>
-        Please enjoy :)
+        Username
+        <br>
+        <input type="text" [(ngModel)]="userName">
     </p>
+</div>
+
+<div class="password-container">
+    <p>
+        Password
+        <br>
+        <input type="password" [(ngModel)]="password">
+    </p>
+</div>
+
+<div class="center-button">
+    <button class="button button1" (click)="signUp()" type="button" mdbBtn color="primary" mdbWavesEffect>Sign Up</button>
+    &nbsp;&nbsp;
+    <button class="button button1" (click)="signIn()" type="button" mdbBtn color="primary" mdbWavesEffect>Sign In</button>
 </div>
 
 <div class="play-container">

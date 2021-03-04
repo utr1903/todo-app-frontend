@@ -20,7 +20,7 @@ export class UserComponent implements OnInit {
   }
 
   saveChanges() {
-    
+
     if (this.password != this.passwordNew) {
       console.log("Passwords don't match");
       return;

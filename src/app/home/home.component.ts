@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +12,33 @@ export class HomeComponent implements OnInit {
   clickCounter: number = 0;
   name: string = " "
 
-  constructor() { }
+  userName: string = ""
+  password: string = ""
+
+  constructor(private _http: HttpService, private _router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  signUp() {
+    const dto = {
+      "userName": this.userName,
+      "password": this.password,
+    };
+
+    this._http.post('http://localhost:8080/users/CreateUser', dto).subscribe(
+      data => {
+        console.log(data);
+        this._router.navigate(['/']);
+      },
+      err => {
+        console.error('There was an error!', err);
+        this._router.navigate(['/']);
+      });
+  }
+
+  signIn() {
+
   }
 
   countClick() {
