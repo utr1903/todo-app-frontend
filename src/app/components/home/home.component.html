@@ -11,48 +11,16 @@
 
 <br>
 
-<h2>Login</h2>
-
-<div class="username-container">
-    <p>
-        Username
-        <br>
-        <input type="text" [(ngModel)]="userName">
-    </p>
-</div>
-
-<div class="password-container">
-    <p>
-        Password
-        <br>
-        <input type="password" [(ngModel)]="password">
-    </p>
-</div>
+<h2>Have a try</h2>
 
 <div class="center-button">
-    <button class="button button1" (click)="signUp()" type="button" mdbBtn color="primary" mdbWavesEffect>Sign Up</button>
-    &nbsp;&nbsp;
-    <button class="button button1" (click)="signIn()" type="button" mdbBtn color="primary" mdbWavesEffect>Sign In</button>
+    <button class="button button1" (click)="navigateToSignUp()" type="button" mdbBtn color="primary" mdbWavesEffect>Sign Up</button>
 </div>
 
-<div class="play-container">
-    <p>You've clicked <span (click)="countClick()">this</span> {{ clickCounter }} times.</p>
-</div>
+<br>
 
-<div class="play-container">
-    <p>
-        <input type="text" [(ngModel)]="name">
-        <br>
-        <strong>You said : </strong> {{ name }}
-    </p>
-</div>
+<h2>Already have an account ?</h2>
 
-<div class="play-container" [ngClass]="setClasses()">"
-    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
-        <p>The click counter <strong>IS GREATER</strong> than 4.</p>
-    </ng-template>
-
-    <ng-template #none>
-        <p>The click counter <strong>IS NOT GREATER</strong> than 4.</p>
-    </ng-template>
+<div class="center-button">
+    <button class="button button1" (click)="navigateToLogin()" type="button" mdbBtn color="primary" mdbWavesEffect>Login</button>
 </div>

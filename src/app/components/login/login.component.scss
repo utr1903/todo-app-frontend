@@ -1,33 +1,28 @@
-span {
-    font-weight: bold;
-    background: lightgray;
-    padding: .3em .8em;
-    cursor: pointer;
-    user-select: none;
-}
-
-.header-container {
-    // padding: 2em;
-    border: none;
-    margin-top: 2em;
-    margin-bottom: none;
-    text-align: center;
-}
-
-.info-container {
-    padding: 0em;
-    border: none;
-    margin-left: 10em;
-    margin-right: 10em;
-    margin-bottom: 1em;
-    text-align: justify;
-}
-
-h2 {
+h1 {
     width:500px;
     margin: 0 auto;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.username-container {
     margin-bottom: 1em;
     text-align: center;
+
+    input {
+        padding: 1em;
+        margin-bottom: 2em;
+    }
+}
+
+.password-container {
+    margin-bottom: 1em;
+    text-align: center;
+
+    input {
+        padding: 1em;
+        margin-bottom: 2em;
+    }
 }
 
 .center-button {

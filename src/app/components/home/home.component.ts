@@ -20,37 +20,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signUp() {
-    const dto = {
-      "userName": this.userName,
-      "password": this.password,
-    };
-
-    this._http.post('http://localhost:8080/users/CreateUser', dto).subscribe(
-      data => {
-        console.log(data);
-        this._router.navigate(['/']);
-      },
-      err => {
-        console.error('There was an error!', err);
-        this._router.navigate(['/']);
-      });
+  navigateToSignUp() {
+    this._router.navigate(['/']);
   }
 
-  signIn() {
-
-  }
-
-  countClick() {
-    this.clickCounter += 1;
-  }
-
-  setClasses() {
-    let myClasses = {
-      active: this.clickCounter > 4,
-      notactive: this.clickCounter <= 4
-    }
-
-    return myClasses;
+  navigateToLogin() {
+    this._router.navigate(['/login']);
   }
 }

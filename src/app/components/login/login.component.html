@@ -1,0 +1,24 @@
+<h1>Login</h1>
+
+<form class="login-form" [formGroup]="formGroup" (ngSubmit)="login">
+    <div class="username-container">
+        <p>
+            Username
+            <br>
+            <input formControlName="username">
+        </p>
+    </div>
+
+    <div class="password-container">
+        <p>
+            Password
+            <br>
+            <input formControlName="password">
+        </p>
+    </div>
+</form>
+
+<div class="center-button">
+    <button class="button button1" (click)="login()" type="button" mdbBtn color="primary" mdbWavesEffect>Login</button>
+</div>
+
