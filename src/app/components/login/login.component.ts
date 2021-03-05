@@ -40,11 +40,11 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.formGroup?.valid) {
       this._authService.login(this.formGroup.value).subscribe(result => {
-        if (result.success) {
-          alert(result.message);
+        if (result.token) {
+          this._router.navigate(['/list']);
         }
         else {
-          alert(result.message);
+          alert("Login unsuccessful");
         }
       });
     }
