@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   navigateToSignUp() {
-    this._router.navigate(['/']);
+    this._router.navigate(['/signup']);
   }
 
   navigateToLogin() {

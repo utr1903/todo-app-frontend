@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class UserComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
   userName: string = "";
   password: string = "";
@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveChanges() {
+  signUp() {
 
     if (this.password != this.passwordAgain) {
       console.log("Passwords don't match");
@@ -31,7 +31,7 @@ export class UserComponent implements OnInit {
 
     console.log(dto);
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/list']);
   }
 
   cancel() {

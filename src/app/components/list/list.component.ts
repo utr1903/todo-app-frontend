@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpService } from '../../services/http/http.service';
 
 @Component({
@@ -8,8 +9,13 @@ import { HttpService } from '../../services/http/http.service';
 })
 export class ListComponent implements OnInit {
 
-  lists: any;
-  constructor(private _http: HttpService) { }
+  lists: any = [];
+  newListName : string = "";
+
+  constructor(
+    private _http: HttpService,
+    private _router: Router
+    ) { }
 
   ngOnInit() {
     this.getTodoLists();
@@ -19,10 +25,23 @@ export class ListComponent implements OnInit {
     this._http.get('http://localhost:8080/lists/GetLists').subscribe(
       data => {
         this.lists = data;
-        console.log(this.lists);
       },
       err => {
-        console.error('There was an error!', err);
+        this._router.navigate(['/login']);
+      });
+  }
+
+  createNewTodoList() {
+    this._http.post('http://localhost:8080/lists/CreateList', this.newListName).subscribe(
+      data => {
+        const list = {
+          "listId": data,
+          "listName": this.newListName
+        }
+        this.lists.push(list);
+      },
+      err => {
+        this._router.navigate(['/login']);
       });
   }
 }

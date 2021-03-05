@@ -1,5 +1,5 @@
 <div class="header-container">
-    <h1>User Settings</h1>
+    <h1>Sign Up</h1>
 </div>
 
 <div class="username-container">
@@ -12,7 +12,7 @@
 
 <div class="password-container">
     <p>
-        New Password
+        Password
         <br>
         <input type="password" [(ngModel)]="password">
     </p>
@@ -20,12 +20,12 @@
 
 <div class="password-container">
     <p>
-        New Password Again
+        Password Again
         <br>
         <input type="password" [(ngModel)]="passwordAgain">
     </p>
 </div>
 
-<button (click)="saveChanges()" type="button" mdbBtn color="primary" mdbWavesEffect>Save Changes</button>
+<button (click)="signUp()" type="button" mdbBtn color="primary" mdbWavesEffect>Save Changes</button>
 &nbsp;&nbsp;
 <button (click)="cancel()" type="button" mdbBtn color="primary" mdbWavesEffect>Cancel</button>

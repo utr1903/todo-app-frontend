@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     if (this.formGroup?.valid) {
       this._authService.login(this.formGroup.value).subscribe(result => {
         if (result.token) {
+          localStorage.setItem("token", result.token);
           this._router.navigate(['/list']);
         }
         else {
