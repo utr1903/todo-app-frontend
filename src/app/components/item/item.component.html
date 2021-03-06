@@ -11,6 +11,6 @@
     <li *ngFor="let item of items">
         <p>{{ item.content }}</p>
         <button class="edit" (click)="editTodoItem(item)" type="button" mdbBtn color="primary" mdbWavesEffect>Edit</button>
-        <button class="delete" (click)="deleteTodoItem(item)" type="button" mdbBtn color="primary" mdbWavesEffect>Delete</button>
+        <button class="delete" (click)="deleteTodoItem(item.itemId)" type="button" mdbBtn color="primary" mdbWavesEffect>Delete</button>
     </li>
 </ul>

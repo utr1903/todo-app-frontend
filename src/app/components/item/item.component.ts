@@ -12,6 +12,7 @@ import { HttpService } from '../../services/http/http.service';
 export class ItemComponent implements OnInit {
 
   items: any = [];
+  listId: string | null = "";
   newItemContent: string = "";
 
   constructor(
@@ -21,9 +22,9 @@ export class ItemComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    const listId = this._route.snapshot.paramMap.get('listId');
-    if (listId) {
-      this.getTodoItems(listId);
+    this.listId = this._route.snapshot.paramMap.get('listId');
+    if (this.listId) {
+      this.getTodoItems(this.listId);
     }
   }
 
@@ -38,12 +39,13 @@ export class ItemComponent implements OnInit {
   }
 
   createNewTodoItem() {
-    this._http.post(`${baseUrl}items/CreateItem`, this.newItemContent).subscribe(
+    const item = {
+      "listId": this.listId,
+      "content": this.newItemContent
+    }
+
+    this._http.post(`${baseUrl}items/CreateItem`, item).subscribe(
       data => {
-        const item = {
-          "listId": data,
-          "content": this.newItemContent
-        }
         this.items.push(item);
       },
       err => {  
@@ -54,20 +56,20 @@ export class ItemComponent implements OnInit {
   editTodoItem(item: any) {
     this._http.post(`${baseUrl}items/UpdateItem`, item).subscribe(
       data => {
-        
+        location.reload();
       },
       err => {
         this._router.navigate(['/login']);
       });
   }
 
-  deleteTodoItem(item: any) {
-    this._http.post(`${baseUrl}items/DeleteItem`, item.id).subscribe(
-      data => {
-        
-      },
-      err => {
-        this._router.navigate(['/login']);
-      });
+  deleteTodoItem(itemId: string) {
+      this._http.post(`${baseUrl}items/DeleteItem`, itemId).subscribe(
+        data => {
+          location.reload();
+        },
+        err => {
+          this._router.navigate(['/login']);
+        });
   }
 }
