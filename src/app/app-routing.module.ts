@@ -12,7 +12,7 @@ import { SignupComponent } from './components/signup/signup.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'list', component: ListComponent},
-  {path: 'item', component: ItemComponent},
+  {path: 'item/:listId', component: ItemComponent},
   {path: 'user', component: UserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},

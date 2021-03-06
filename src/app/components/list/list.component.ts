@@ -47,14 +47,8 @@ export class ListComponent implements OnInit {
       });
   }
 
-  navigateToList(list: any) {
-    this._http.post(`${baseUrl}lists/GetList`, list).subscribe(
-      data => {
-        
-      },
-      err => {
-        this._router.navigate(['/login']);
-      });
+  navigateToItems(list: any) {
+    this._router.navigate([`/item/${list.listId}`]);
   }
 
   editTodoList(list: any) {

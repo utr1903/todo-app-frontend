@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { baseUrl } from '../../../environments/environment'
 import { HttpService } from '../../services/http/http.service';
@@ -16,15 +16,19 @@ export class ItemComponent implements OnInit {
 
   constructor(
     private _http: HttpService,
-    private _router: Router
+    private _router: Router,
+    private _route: ActivatedRoute,
     ) { }
 
   ngOnInit(): void {
-    this.getTodoItems();
+    const listId = this._route.snapshot.paramMap.get('listId');
+    if (listId) {
+      this.getTodoItems(listId);
+    }
   }
 
-  getTodoItems() {
-    this._http.get(`${baseUrl}items/GetItems`).subscribe(
+  getTodoItems(listId: string) {
+    this._http.post(`${baseUrl}items/GetItems`, listId).subscribe(
       data => {
         this.items = data;
       },
