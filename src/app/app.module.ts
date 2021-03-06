@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListComponent } from './components/list/list.component';
+import { ItemComponent } from './components/item/item.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -21,7 +22,8 @@ import { SignupComponent } from './components/signup/signup.component';
     ListComponent,
     UserComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

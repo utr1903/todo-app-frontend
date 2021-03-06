@@ -1,0 +1,15 @@
+<h1>Todo Items</h1>
+
+<div class="center-button">
+    <p><input type="text" [(ngModel)]="newItemContent"></p>
+    <button class="button button1" (click)="createNewTodoItem()" type="button" mdbBtn color="primary" mdbWavesEffect>Create New Item</button>
+</div>
+
+<br>
+
+<ul *ngIf="items">
+    <li *ngFor="let item of items">
+        <button class="edit" (click)="editTodoItem(item)" type="button" mdbBtn color="primary" mdbWavesEffect>Edit</button>
+        <button class="delete" (click)="deleteTodoItem(item)" type="button" mdbBtn color="primary" mdbWavesEffect>Delete</button>
+    </li>
+</ul>
