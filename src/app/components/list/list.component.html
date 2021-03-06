@@ -9,7 +9,9 @@
 
 <ul *ngIf="lists">
     <li *ngFor="let list of lists">
-        <p class="Name">{{ list.listName }}</p>
-        <!-- <a href="{{ brew.website_url }}" class="site">site</a> -->
+        <!-- <a href="http://localhost:4200/" class="site">{{ list.listName }}</a> -->
+        <a [routerLink]="" (click)="navigateToList(list)">{{ list.listName }}</a>
+        <button class="edit" (click)="editTodoList(list)" type="button" mdbBtn color="primary" mdbWavesEffect>Edit</button>
+        <button class="delete" (click)="deleteTodoList(list)" type="button" mdbBtn color="primary" mdbWavesEffect>Delete</button>
     </li>
 </ul>

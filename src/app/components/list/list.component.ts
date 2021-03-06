@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { baseUrl } from '../../../environments/environment'
 import { HttpService } from '../../services/http/http.service';
 
 @Component({
@@ -22,7 +24,7 @@ export class ListComponent implements OnInit {
   }
 
   getTodoLists() {
-    this._http.get('http://localhost:8080/lists/GetLists').subscribe(
+    this._http.get(`${baseUrl}lists/GetLists`).subscribe(
       data => {
         this.lists = data;
       },
@@ -32,13 +34,43 @@ export class ListComponent implements OnInit {
   }
 
   createNewTodoList() {
-    this._http.post('http://localhost:8080/lists/CreateList', this.newListName).subscribe(
+    this._http.post(`${baseUrl}lists/CreateList`, this.newListName).subscribe(
       data => {
         const list = {
           "listId": data,
           "listName": this.newListName
         }
         this.lists.push(list);
+      },
+      err => {  
+        this._router.navigate(['/login']);
+      });
+  }
+
+  navigateToList(list: any) {
+    this._http.post(`${baseUrl}lists/GetList`, list).subscribe(
+      data => {
+        
+      },
+      err => {
+        this._router.navigate(['/login']);
+      });
+  }
+
+  editTodoList(list: any) {
+    this._http.post(`${baseUrl}lists/UpdateList`, list).subscribe(
+      data => {
+        
+      },
+      err => {
+        this._router.navigate(['/login']);
+      });
+  }
+
+  deleteTodoList(list: any) {
+    this._http.post(`${baseUrl}lists/DeleteList`, list.id).subscribe(
+      data => {
+        
       },
       err => {
         this._router.navigate(['/login']);
