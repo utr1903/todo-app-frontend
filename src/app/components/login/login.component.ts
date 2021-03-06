@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   initForm() {
     this.formGroup = new FormGroup({
-      username: new FormControl('', [Validators.required]),
+      userName: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     })
   }
@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.formGroup?.valid) {
       this._authService.login(this.formGroup.value).subscribe(result => {
-        if (result.token) {
-          localStorage.setItem("token", result.token);
+        if (result.model.token) {
+          localStorage.setItem("token", result.model.token);
           this._router.navigate(['/list']);
         }
         else {

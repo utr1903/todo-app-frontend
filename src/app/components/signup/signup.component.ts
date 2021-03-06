@@ -29,8 +29,6 @@ export class SignupComponent implements OnInit {
       "password": this.password
     };
 
-    console.log(dto);
-
     this.router.navigate(['/list']);
   }
 

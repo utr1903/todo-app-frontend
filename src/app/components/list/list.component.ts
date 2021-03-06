@@ -11,7 +11,7 @@ import { HttpService } from '../../services/http/http.service';
 })
 export class ListComponent implements OnInit {
 
-  lists: any = [];
+  dto: any;
   newListName : string = "";
 
   constructor(
@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
   getTodoLists() {
     this._http.get(`${baseUrl}lists/GetLists`).subscribe(
       data => {
-        this.lists = data;
+        this.dto = data;
       },
       err => {
         this._router.navigate(['/login']);
@@ -40,7 +40,7 @@ export class ListComponent implements OnInit {
           "listId": data,
           "listName": this.newListName
         }
-        this.lists.push(list);
+        this.dto.model.push(list);
       },
       err => {  
         this._router.navigate(['/login']);

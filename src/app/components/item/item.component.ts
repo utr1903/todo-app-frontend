@@ -11,7 +11,7 @@ import { HttpService } from '../../services/http/http.service';
 })
 export class ItemComponent implements OnInit {
 
-  items: any = [];
+  dto: any;
   listId: string | null = "";
   newItemContent: string = "";
 
@@ -31,7 +31,7 @@ export class ItemComponent implements OnInit {
   getTodoItems(listId: string) {
     this._http.post(`${baseUrl}items/GetItems`, listId).subscribe(
       data => {
-        this.items = data;
+        this.dto = data;
       },
       err => {
         this._router.navigate(['/login']);
@@ -46,9 +46,9 @@ export class ItemComponent implements OnInit {
 
     this._http.post(`${baseUrl}items/CreateItem`, item).subscribe(
       data => {
-        this.items.push(item);
+        this.dto.model.push(item);
       },
-      err => {  
+      err => {
         this._router.navigate(['/login']);
       });
   }
